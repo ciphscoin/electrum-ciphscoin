@@ -164,11 +164,10 @@ jobs:
       - name: Build (Wine) [on pr]
         if:  github.event_name == 'pull_request'
         run: |
-          echo ${{ github.head_ref }}
-          echo ${{ github.base_ref }}
+          echo ${GITHUB_REF#refs/heads/}
           echo ${{ github.repository }}
           cd contrib/build-wine
-          sudo ./build.sh ${{ github.base_ref }}  ${{ github.repository }}
+          sudo ./build.sh ${GITHUB_REF#refs/heads/} ${{ github.repository }}
           cd ../..
           zip electrum-spacecoin-installer contrib/build-wine/dist/*.exe
 
