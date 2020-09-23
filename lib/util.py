@@ -508,7 +508,7 @@ def time_difference(distance_in_time, include_seconds):
 mainnet_block_explorers = {
     'explorer.spaceworks.co': ('https://explorer.spaceworks.co/',
                         {'tx': 'tx/', 'addr': 'address/'}),
-    'space.explorer.dexstats.info': ('https://space.explorer.dexstats.info',
+    'space.explorer.dexstats.info': ('https://space.explorer.dexstats.info/',
                         {'tx': 'tx/', 'addr': 'address/'}),
 }
 
