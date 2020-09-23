@@ -506,9 +506,9 @@ def time_difference(distance_in_time, include_seconds):
         return "over %d years" % (round(distance_in_minutes / 525600))
 
 mainnet_block_explorers = {
-    'blockexplorer.com': ('https://explorer.spaceworks.co/',
-                        {'tx': 'transactions/', 'addr': 'addresses/'}),
-    'system default': ('blockchain:/',
+    'explorer.spaceworks.co': ('https://explorer.spaceworks.co/',
+                        {'tx': 'tx/', 'addr': 'address/'}),
+    'space.explorer.dexstats.info': ('https://space.explorer.dexstats.info',
                         {'tx': 'tx/', 'addr': 'address/'}),
 }
 
@@ -524,7 +524,7 @@ def block_explorer_info():
     return testnet_block_explorers if constants.net.TESTNET else mainnet_block_explorers
 
 def block_explorer(config):
-    return config.get('block_explorer', 'blockexplorer.com')
+    return config.get('block_explorer', 'explorer.spaceworks.co')
 
 def block_explorer_tuple(config):
     return block_explorer_info().get(block_explorer(config))
