@@ -61,48 +61,48 @@ jobs:
           name: electrum-spacecoin-${{ github.sha }}.AppImage.tar.gz
           path: ./electrum-spacecoin-appimage.tar.gz
 
-  linux-test:
-    name: Linux Tests
-    runs-on: ubuntu-latest
-    needs: [linux-appimage]
+  #linux-test:
+    #name: Linux Tests
+    #runs-on: ubuntu-latest
+    #needs: [linux-appimage]
 
-    steps:
-      - uses: actions/checkout@v1
+    #steps:
+      #- uses: actions/checkout@v1
 
-      - name: Install deps (Linux)
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
-          sudo apt-get remove php7.1-fpm php7.2-fpm php7.3-fpm php7.4-fpm php7.3-common php7.4-common
-          sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get upgrade -y
-          sudo apt-get update
-          sudo apt-get install -q \
-                 python3 \
-                 python3-dev \
-                 python3-setuptools \
-                 python3-pip \
-                 python3-pyqt5 \
-                 pyqt5-dev-tools \
-                 python-requests \
-                 gettext \
-                 python3-setuptools \
-                 protobuf-compiler \
-                 libusb-1.0-0-dev \
-                 libudev-dev -y
-          python3 -m pip install setuptools wheel
-          python3 -m pip install pytest
-          python3 -m pip install .[full]
-          pyrcc5 icons.qrc -o gui/qt/icons_rc.py
-          protoc --proto_path=lib/ --python_out=lib/ lib/paymentrequest.proto
-          ./contrib/make_locale
+      #- name: Install deps (Linux)
+        #env:
+          #DEBIAN_FRONTEND: noninteractive
+        #run: |
+          #sudo apt-get remove php7.1-fpm php7.2-fpm php7.3-fpm php7.4-fpm php7.3-common php7.4-common
+          #sudo apt-get update
+          #sudo ACCEPT_EULA=Y apt-get upgrade -y
+          #sudo apt-get update
+          #sudo apt-get install -q \
+                 #python3 \
+                 #python3-dev \
+                 #python3-setuptools \
+                 #python3-pip \
+                 #python3-pyqt5 \
+                 #pyqt5-dev-tools \
+                 #python-requests \
+                 #gettext \
+                 #python3-setuptools \
+                 #protobuf-compiler \
+                 #libusb-1.0-0-dev \
+                 #libudev-dev -y
+          #python3 -m pip install setuptools wheel
+          #python3 -m pip install pytest
+          #python3 -m pip install .[full]
+          #pyrcc5 icons.qrc -o gui/qt/icons_rc.py
+          #protoc --proto_path=lib/ --python_out=lib/ lib/paymentrequest.proto
+          #./contrib/make_locale
 
-      - name: Run Tests (Linux)
-        run: |
-          python3 -m pytest lib/tests/ -s -vv
+      #- name: Run Tests (Linux)
+        #run: |
+          #python3 -m pytest lib/tests/ -s -vv
 
   macos:
-    name: MacOS Build and Test
+    name: MacOS Build
     runs-on: macos-latest
 
     steps:
@@ -120,12 +120,12 @@ jobs:
           name: electrum-spacecoin-macos-${{ github.sha }}.dmg.tar.gz
           path: ./electrum-spacecoin-macos.dmg.tar.gz
 
-      - name: Run Tests (MacOS)
-        run: |
-          sudo python3 -m pip install --upgrade pip
-          sudo python3 -m pip install .[full] --ignore-installed
-          sudo python3 -m pip install pytest
-          sudo python3 -m pytest lib/tests/ -s -vv
+      #- name: Run Tests (MacOS)
+        #run: |
+          #sudo python3 -m pip install --upgrade pip
+          #sudo python3 -m pip install .[full] --ignore-installed
+          #sudo python3 -m pip install pytest
+          #sudo python3 -m pytest lib/tests/ -s -vv
 
   wine-build:
     name: Wine Build
@@ -178,20 +178,20 @@ jobs:
           name: electrum-spacecoin-win-${{ github.sha }}.zip
           path: ./electrum-spacecoin-installer.zip
 
-  win-test:
-    name: Windows Tests
-    runs-on: windows-latest
-    needs: [wine-build]
+  #win-test:
+    #name: Windows Tests
+    #runs-on: windows-latest
+    #needs: [wine-build]
 
-    steps:
-      - uses: actions/checkout@v1
-      - name: Win Deps Install
-        shell: cmd
-        run: |
-          python.exe -m pip install --upgrade pip
-          python.exe -m pip install .[full]
-          python.exe -m pip install pytest
+    #steps:
+      #- uses: actions/checkout@v1
+      #- name: Win Deps Install
+        #shell: cmd
+        #run: |
+          #python.exe -m pip install --upgrade pip
+          #python.exe -m pip install .[full]
+          #python.exe -m pip install pytest
 
-      - name: Win Test Run
-        run: |
-          python.exe -m pytest lib\tests -s -vv
+      #- name: Win Test Run
+        #run: |
+          #python.exe -m pytest lib\tests -s -vv
