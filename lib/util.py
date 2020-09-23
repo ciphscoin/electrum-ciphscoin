@@ -40,7 +40,7 @@ def inv_dict(d):
     return {v: k for k, v in d.items()}
 
 
-base_units = {'RICK':8, 'mRICK':5, 'uRICK':2}
+base_units = {'SPACE':8, 'mSPACE':5, 'uSPACE':2}
 
 def normalize_version(v):
     return [int(x) for x in re.sub(r'(\.0+)*$','', v).split(".")]
@@ -506,7 +506,7 @@ def time_difference(distance_in_time, include_seconds):
         return "over %d years" % (round(distance_in_minutes / 525600))
 
 mainnet_block_explorers = {
-    'blockexplorer.com': ('https://rick.kmd.dev/',
+    'blockexplorer.com': ('https://explorer.spaceworks.co/',
                         {'tx': 'transactions/', 'addr': 'addresses/'}),
     'system default': ('blockchain:/',
                         {'tx': 'tx/', 'addr': 'address/'}),

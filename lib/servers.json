@@ -1,12 +1,12 @@
 {
-    "electrum1.cipig.net": 
+    "electrum1.spaceworks.co":
     {
-        "t":"10017",
+        "t":"50001",
         "version": "1.4"
     },
-    "electrum2.cipig.net": 
+    "electrum2.spaceworks.co": 
     {
-        "t":"10017",
+        "t":"50001",
         "version": "1.4"
     }
 }

@@ -82,11 +82,11 @@ class BTCAmountEdit(AmountEdit):
     def _base_unit(self):
         p = self.decimal_point()
         if p == 8:
-            return 'RICK'
+            return 'SPACE'
         if p == 5:
-            return 'mRICK'
+            return 'mSPACE'
         if p == 2:
-            return 'uRICK'
+            return 'uSPACE'
         raise Exception('Unknown base unit')
 
     def get_amount(self):

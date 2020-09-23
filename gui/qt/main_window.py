@@ -666,11 +666,11 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
     def base_unit(self):
         assert self.decimal_point in [2, 5, 8]
         if self.decimal_point == 2:
-            return 'uRICK'
+            return 'uSPACE'
         if self.decimal_point == 5:
-            return 'mRICK'
+            return 'mSPACE'
         if self.decimal_point == 8:
-            return 'RICK'
+            return 'SPACE'
         raise Exception('Unknown base unit')
 
     def connect_fields(self, window, btc_e, fiat_e, fee_e):
@@ -2720,9 +2720,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         SSL_id_e.setReadOnly(True)
         id_widgets.append((SSL_id_label, SSL_id_e))
 
-        units = ['RICK', 'mRICK', 'uRICK']
+        units = ['SPACE', 'mSPACE', 'uSPACE']
         msg = (_('Base unit of your wallet.')
-               + '\n1 RICK = 1000 mRICK. 1 mRICK = 1000 uRICK.\n'
+               + '\n1 SPACE = 1000 mSPACE. 1 mSPACE = 1000 uSPACE.\n'
                + _('This setting affects the Send tab, and all balance related fields.'))
         unit_label = HelpLabel(_('Base unit') + ':', msg)
         unit_combo = QComboBox()
@@ -2734,11 +2734,11 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                 return
             edits = self.amount_e, self.fee_e, self.receive_amount_e
             amounts = [edit.get_amount() for edit in edits]
-            if unit_result == 'RICK':
+            if unit_result == 'SPACE':
                 self.decimal_point = 8
-            elif unit_result == 'mRICK':
+            elif unit_result == 'mSPACE':
                 self.decimal_point = 5
-            elif unit_result == 'uRICK':
+            elif unit_result == 'uSPACE':
                 self.decimal_point = 2
             else:
                 raise Exception('Unknown base unit')
