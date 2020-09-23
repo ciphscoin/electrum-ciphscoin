@@ -41,7 +41,7 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
     ]
 
 setup(
-    name="Electrum-Zcash",
+    name="Electrum-Spacecoin",
     version=version.ELECTRUM_VERSION,
     install_requires=requirements,
     extras_require={
