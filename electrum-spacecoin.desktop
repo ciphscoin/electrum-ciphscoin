@@ -1,5 +1,5 @@
 # If you want Electrum-Spacecoin to appear in a Linux app launcher ("start menu"), install this by doing:
-# sudo desktop-file-install electrum-zcash.desktop
+# sudo desktop-file-install electrum-spacecoin.desktop
 
 [Desktop Entry]
 Comment=Lightweight Spacecoin Client
