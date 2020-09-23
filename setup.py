@@ -37,7 +37,7 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
         (os.path.join(usr_share, 'applications/'), ['electrum-spacecoin.desktop']),
-        (os.path.join(usr_share, icons_dirname), ['icons/electrum-spacecoin.png'])
+        (os.path.join(usr_share, icons_dirname), ['icons/electrum-zcash.png'])
     ]
 
 setup(
