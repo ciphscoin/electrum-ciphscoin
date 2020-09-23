@@ -92,7 +92,7 @@ class Contacts(dict):
                 'type': 'openalias',
                 'validated': validated
             }
-        raise Exception("Invalid Zcash address or alias", k)
+        raise Exception("Invalid Spacecoin address or alias", k)
 
     def resolve_openalias(self, url):
         # support email-style addresses, per the OA standard
@@ -120,7 +120,7 @@ class Contacts(dict):
             return regex.search(haystack).groups()[0]
         except AttributeError:
             return None
-            
+
     def _validate(self, data):
         for k, v in list(data.items()):
             if k == 'contacts':
@@ -132,4 +132,3 @@ class Contacts(dict):
                 if _type != 'address':
                     data.pop(k)
         return data
-

@@ -16,7 +16,7 @@ class ElectrumGui:
         self.network = daemon.network
         storage = WalletStorage(config.get_wallet_path())
         if not storage.file_exists:
-            print("Wallet not found. try 'electrum-zcash create'")
+            print("Wallet not found. try 'electrum-spacecoin create'")
             exit()
         if storage.is_encrypted():
             password = getpass.getpass('Password:', stream=None)
@@ -163,7 +163,7 @@ class ElectrumGui:
 
     def do_send(self):
         if not is_address(self.str_recipient):
-            print(_('Invalid Zcash address'))
+            print(_('Invalid Spacecoin address'))
             return
         try:
             amount = int(Decimal(self.str_amount) * COIN)
@@ -208,12 +208,12 @@ class ElectrumGui:
             print(_('Error'))
 
     def network_dialog(self):
-        print("use 'electrum-zcash setconfig server/proxy' to change your network settings")
+        print("use 'electrum-spacecoin setconfig server/proxy' to change your network settings")
         return True
 
 
     def settings_dialog(self):
-        print("use 'electrum-zcash setconfig' to change your settings")
+        print("use 'electrum-spacecoin setconfig' to change your settings")
         return True
 
     def password_dialog(self):

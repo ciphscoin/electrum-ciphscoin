@@ -196,7 +196,7 @@ class Ledger_Client():
                 self.perform_hw1_preflight()
             except BTChipException as e:
                 if (e.sw == 0x6d00 or e.sw == 0x6700):
-                    raise Exception(_("Device not in Zcash mode")) from e
+                    raise Exception(_("Device not in Spacecoin mode")) from e
                 raise e
             self.preflightDone = True
 
@@ -577,7 +577,7 @@ class LedgerPlugin(HW_PluginBase):
         device_id = device_info.device.id_
         client = devmgr.client_by_id(device_id)
         client.handler = self.create_handler(wizard)
-        client.get_xpub("m/44'/133'", 'standard') # TODO replace by direct derivation once Nano S > 1.1
+        client.get_xpub("m/44'/141'", 'standard') # TODO replace by direct derivation once Nano S > 1.1
 
     def get_xpub(self, device_id, derivation, xtype, wizard):
         devmgr = self.device_manager()

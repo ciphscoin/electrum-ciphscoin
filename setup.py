@@ -18,7 +18,7 @@ with open('contrib/requirements/requirements-hw.txt') as f:
 version = imp.load_source('version', 'lib/version.py')
 
 if sys.version_info[:3] < (3, 4, 0):
-    sys.exit("Error: Electrum-Zcash requires Python version >= 3.4.0...")
+    sys.exit("Error: Electrum-Spacecoin requires Python version >= 3.4.0...")
 
 data_files = []
 
@@ -37,7 +37,7 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
         (os.path.join(usr_share, 'applications/'), ['electrum-zcash.desktop']),
-        (os.path.join(usr_share, icons_dirname), ['icons/electrum-zcash.png'])
+        (os.path.join(usr_share, icons_dirname), ['icons/electrum-spacecoin.png'])
     ]
 
 setup(
@@ -80,10 +80,10 @@ setup(
     },
     scripts=['electrum-zcash'],
     data_files=data_files,
-    description="Lightweight Zcash Wallet",
+    description="Lightweight Spacecoin Wallet",
     author="Thomas Voegtlin",
     author_email="thomasv@electrum.org",
     license="MIT License",
-    url="https://github.com/zebra-lucky/electrum-zcash",
-    long_description="""Lightweight Zcash Wallet"""
+    url="https://github.com/SpaceWorksCo/electrum-spacecoin",
+    long_description="""Lightweight Spacecoin Wallet"""
 )
