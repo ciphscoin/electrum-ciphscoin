@@ -6,7 +6,7 @@ Comment=Lightweight Spacecoin Client
 Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\" electrum-zcash %u"
 GenericName[en_US]=Spacecoin Wallet
 GenericName=Spacecoin Wallet
-Icon=electrum-spacecoin.png
+Icon=electrum-spacecoin
 Name[en_US]=Electrum Spacecoin Wallet
 Name=Electrum Spacecoin Wallet
 Categories=Finance;Network;
