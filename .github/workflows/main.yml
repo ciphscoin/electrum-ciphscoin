@@ -38,7 +38,6 @@ jobs:
           pyrcc5 icons.qrc -o gui/qt/icons_rc.py
           protoc --proto_path=lib/ --python_out=lib/ lib/paymentrequest.proto
           ./contrib/make_locale
-
       - name: Build (Linux/Appimage)
         run: |
           cd contrib/deterministic-build
@@ -54,7 +53,6 @@ jobs:
                           electrum-spacecoin-appimage-builder-img \
                           ./build.sh
           tar -czvf electrum-spacecoin-appimage.tar.gz dist/*.AppImage
-
       - name: Upload electrum.Appiamge as artifact
         uses: actions/upload-artifact@v1
         with:
@@ -113,7 +111,6 @@ jobs:
           contrib/build-osx/before_install-osx.sh
           contrib/build-osx/build-gha.sh
           tar -czvf electrum-spacecoin-macos.dmg.tar.gz contrib/build-osx/dist/*.dmg
-
       - name: Upload electrum.dmg as artifact
         uses: actions/upload-artifact@v1
         with:
@@ -150,7 +147,6 @@ jobs:
           sudo dpkg --add-architecture i386 && \
                   sudo apt-get update && \
                   sudo apt-get install wine32-development -y
-
       - name: Build (Wine) [on push]
         if:  github.event_name == 'push'
         run: |
@@ -160,17 +156,16 @@ jobs:
           sudo ./build.sh ${GITHUB_REF#refs/heads/} ${{ github.repository }}
           cd ../..
           zip electrum-spacecoin-installer contrib/build-wine/dist/*.exe
-
       - name: Build (Wine) [on pr]
         if:  github.event_name == 'pull_request'
         run: |
-          echo ${GITHUB_REF#refs/heads/}
+          echo ${{ github.head_ref }}
+          echo ${{ github.base_ref }}
           echo ${{ github.repository }}
           cd contrib/build-wine
-          sudo ./build.sh ${GITHUB_REF#refs/heads/} ${{ github.repository }}
+          sudo ./build.sh ${{ github.base_ref }}  ${{ github.repository }}
           cd ../..
           zip electrum-spacecoin-installer contrib/build-wine/dist/*.exe
-
       - name: Upload electrum-setup.exe as artifact
         uses: actions/upload-artifact@v1
         with:
