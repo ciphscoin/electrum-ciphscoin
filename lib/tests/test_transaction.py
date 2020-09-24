@@ -1,3 +1,5 @@
+# TODO: add kmd rewards claim tests
+
 import unittest
 
 from lib import transaction
@@ -57,7 +59,7 @@ class TestTransaction(unittest.TestCase):
             'overwintered': False,
             'inputs': [{
                 'type': 'p2pkh',
-                'address': 't1LvhooU7zQuqEtjZZN83EL8QSBUkd8WkHR',
+                'address': 'RCLHsywGcuvoiG3s67J3C3MgwnkGUhAWQV',
                 'num_sig': 1,
                 'prevout_hash': '3140eb24b43386f35ba69e3875eb6c93130ac66201d01c58f598defc949a5c2a',
                 'prevout_n': 0,
@@ -68,7 +70,7 @@ class TestTransaction(unittest.TestCase):
                 'x_pubkeys': ['ff0488b21e03ef2afea18000000089689bff23e1e7fb2f161daa37270a97a3d8c2e537584b2d304ecb47b86d21fc021b010d3bd425f8cf2e04824bfdf1f1f5ff1d51fadd9a41f9e3fb8dd3403b1bfe00000000']}],
             'lockTime': 0,
             'outputs': [{
-                'address': 't1M4tYuzKx46ARb7hDcdnMAjkx8Acdrbd9Z',
+                'address': 'RCUUd6TUaZ78txRzkMonJsy3TjS8R2uYhW',
                 'prevout_n': 0,
                 'scriptPubKey': '76a914230ac37834073a42146f11ef8414ae929feaafc388ac',
                 'type': TYPE_ADDRESS,
@@ -80,11 +82,11 @@ class TestTransaction(unittest.TestCase):
         self.assertEqual(tx.deserialize(), None)
 
         self.assertEqual(tx.as_dict(), {'hex': unsigned_blob, 'complete': False, 'final': True})
-        self.assertEqual(tx.get_outputs(), [('t1M4tYuzKx46ARb7hDcdnMAjkx8Acdrbd9Z', 1000000)])
-        self.assertEqual(tx.get_output_addresses(), ['t1M4tYuzKx46ARb7hDcdnMAjkx8Acdrbd9Z'])
+        self.assertEqual(tx.get_outputs(), [('RCUUd6TUaZ78txRzkMonJsy3TjS8R2uYhW', 1000000)])
+        self.assertEqual(tx.get_output_addresses(), ['RCUUd6TUaZ78txRzkMonJsy3TjS8R2uYhW'])
 
-        self.assertTrue(tx.has_address('t1M4tYuzKx46ARb7hDcdnMAjkx8Acdrbd9Z'))
-        self.assertTrue(tx.has_address('t1LvhooU7zQuqEtjZZN83EL8QSBUkd8WkHR'))
+        self.assertTrue(tx.has_address('RCUUd6TUaZ78txRzkMonJsy3TjS8R2uYhW'))
+        self.assertTrue(tx.has_address('RCLHsywGcuvoiG3s67J3C3MgwnkGUhAWQV'))
         self.assertFalse(tx.has_address('t1VHL1RP9LS7otTAqQJqFncJvfMUkwHriZr'))
 
         self.assertEqual(tx.serialize(), unsigned_blob)
@@ -102,7 +104,7 @@ class TestTransaction(unittest.TestCase):
             'overwintered': False,
             'inputs': [{
                 'type': 'p2pkh',
-                'address': 't1LvhooU7zQuqEtjZZN83EL8QSBUkd8WkHR',
+                'address': 'RCLHsywGcuvoiG3s67J3C3MgwnkGUhAWQV',
                 'num_sig': 1,
                 'prevout_hash': '3140eb24b43386f35ba69e3875eb6c93130ac66201d01c58f598defc949a5c2a',
                 'prevout_n': 0,
@@ -113,7 +115,7 @@ class TestTransaction(unittest.TestCase):
                 'x_pubkeys': ['02e61d176da16edd1d258a200ad9759ef63adf8e14cd97f53227bae35cdb84d2f6']}],
             'lockTime': 0,
             'outputs': [{
-                'address': 't1M4tYuzKx46ARb7hDcdnMAjkx8Acdrbd9Z',
+                'address': 'RCUUd6TUaZ78txRzkMonJsy3TjS8R2uYhW',
                 'prevout_n': 0,
                 'scriptPubKey': '76a914230ac37834073a42146f11ef8414ae929feaafc388ac',
                 'type': TYPE_ADDRESS,
@@ -136,8 +138,8 @@ class TestTransaction(unittest.TestCase):
 
     def test_estimated_output_size(self):
         estimated_output_size = transaction.Transaction.estimated_output_size
-        self.assertEqual(estimated_output_size('t1MZDS9LxiXasLqR5fMDK4kDa8TJjSFsMsq'), 34)
-        self.assertEqual(estimated_output_size('t3NSSQe2KNgLcTWy2WsiRAkr7NTtZ15fhLn'), 32)
+        self.assertEqual(estimated_output_size('RCxoWKp7M2bqpCjPC6PK2TSre4aFPUZWp6'), 34)
+        self.assertEqual(estimated_output_size('bGc6AzTECnd7HZ54Y1YnpyX8UAJw4EBkue'), 32)
 
     def test_errors(self):
         with self.assertRaises(TypeError):
@@ -148,7 +150,7 @@ class TestTransaction(unittest.TestCase):
 
     def test_parse_xpub(self):
         res = xpubkey_to_address('fe4e13b0f311a55b8a5db9a32e959da9f011b131019d4cebe6141b9e2c93edcbfc0954c358b062a9f94111548e50bde5847a3096b8b7872dcffadb0e9579b9017b01000200')
-        self.assertEqual(res, ('04ee98d63800824486a1cf5b4376f2f574d86e0a3009a6448105703453f3368e8e1d8d090aaecdd626a45cc49876709a3bbb6dc96a4311b3cac03e225df5f63dfc', 't1SZk4P4Cc38CgmKRSY5EDDUZGyhzA66iHH'))
+        self.assertEqual(res, ('04ee98d63800824486a1cf5b4376f2f574d86e0a3009a6448105703453f3368e8e1d8d090aaecdd626a45cc49876709a3bbb6dc96a4311b3cac03e225df5f63dfc', 'RHyL8ZXMEY9BA8diyHFEAvhqnayVzMTTbt'))
 
     def test_version_field(self):
         tx = transaction.Transaction(v2_blob)
@@ -160,12 +162,12 @@ class TestTransaction(unittest.TestCase):
         ADDR = transaction.TYPE_ADDRESS
 
         # base58 p2pkh
-        self.assertEqual((ADDR, 't1MZDS9LxiXasLqR5fMDK4kDa8TJjSFsMsq'), addr_from_script('76a91428662c67561b95c79d2257d2a93d9d151c977e9188ac'))
-        self.assertEqual((ADDR, 't1U7SgL7CWNnawSvZD8k8JgwWUygasy2cp1'), addr_from_script('76a914704f4b81cadb7bf7e68c08cd3657220f680f863c88ac'))
+        self.assertEqual((ADDR, 'RCxoWKp7M2bqpCjPC6PK2TSre4aFPUZWp6'), addr_from_script('76a91428662c67561b95c79d2257d2a93d9d151c977e9188ac'))
+        self.assertEqual((ADDR, 'RKX2kWaM8soZQpErjsv8GQAnzax6k5BgWU'), addr_from_script('76a914704f4b81cadb7bf7e68c08cd3657220f680f863c88ac'))
 
         # base58 p2sh
-        self.assertEqual((ADDR, 't3NSSQe2KNgLcTWy2WsiRAkr7NTtZ15fhLn'), addr_from_script('a9142a84cf00d47f699ee7bbc1dea5ec1bdecb4ac15487'))
-        self.assertEqual((ADDR, 't3grLzdTrjSSiCFXzxV5YCvkYZt2tJjDLau'), addr_from_script('a914f47c8954e421031ad04ecd8e7752c9479206b9d387'))
+        self.assertEqual((ADDR, 'bGc6AzTECnd7HZ54Y1YnpyX8UAJw4EBkue'), addr_from_script('a9142a84cf00d47f699ee7bbc1dea5ec1bdecb4ac15487'))
+        self.assertEqual((ADDR, 'bb1zkytmZYjD2He2ycuus9RZfaTGSa17zf'), addr_from_script('a914f47c8954e421031ad04ecd8e7752c9479206b9d387'))
 
 #####
 

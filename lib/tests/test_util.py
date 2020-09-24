@@ -23,48 +23,47 @@ class TestUtil(unittest.TestCase):
         self.assertEqual(expected, result)
 
     def test_parse_URI_address(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S'})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2'})
 
     def test_parse_URI_only_address(self):
-        self._do_test_parse_URI('t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S'})
+        self._do_test_parse_URI('RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2'})
 
 
     def test_parse_URI_address_label(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?label=electrum%20test',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S', 'label': 'electrum test'})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?label=electrum%20test',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2', 'label': 'electrum test'})
 
     def test_parse_URI_address_message(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?message=electrum%20test',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S', 'message': 'electrum test', 'memo': 'electrum test'})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?message=electrum%20test',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2', 'message': 'electrum test', 'memo': 'electrum test'})
 
     def test_parse_URI_address_amount(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?amount=0.0003',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S', 'amount': 30000})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?amount=0.0003',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2', 'amount': 30000})
 
     def test_parse_URI_address_request_url(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?r=http://domain.tld/page?h%3D2a8628fc2fbe',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S', 'r': 'http://domain.tld/page?h=2a8628fc2fbe'})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?r=http://domain.tld/page?h%3D2a8628fc2fbe',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2', 'r': 'http://domain.tld/page?h=2a8628fc2fbe'})
 
     def test_parse_URI_ignore_args(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?test=test',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S', 'test': 'test'})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?test=test',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2', 'test': 'test'})
 
     def test_parse_URI_multiple_args(self):
-        self._do_test_parse_URI('zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?amount=0.00004&label=electrum-test&message=electrum%20test&test=none&r=http://domain.tld/page',
-                                {'address': 't1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S', 'amount': 4000, 'label': 'electrum-test', 'message': u'electrum test', 'memo': u'electrum test', 'r': 'http://domain.tld/page', 'test': 'none'})
+        self._do_test_parse_URI('spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?amount=0.00004&label=electrum-test&message=electrum%20test&test=none&r=http://domain.tld/page',
+                                {'address': 'RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2', 'amount': 4000, 'label': 'electrum-test', 'message': u'electrum test', 'memo': u'electrum test', 'r': 'http://domain.tld/page', 'test': 'none'})
 
     def test_parse_URI_no_address_request_url(self):
-        self._do_test_parse_URI('zcash:?r=http://domain.tld/page?h%3D2a8628fc2fbe',
+        self._do_test_parse_URI('spacecoin:?r=http://domain.tld/page?h%3D2a8628fc2fbe',
                                 {'r': 'http://domain.tld/page?h=2a8628fc2fbe'})
 
     def test_parse_URI_invalid_address(self):
-        self.assertRaises(BaseException, parse_URI, 'zcash:invalidaddress')
+        self.assertRaises(BaseException, parse_URI, 'spacecoin:invalidaddress')
 
     def test_parse_URI_invalid(self):
-        self.assertRaises(BaseException, parse_URI, 'notzcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S')
+        self.assertRaises(BaseException, parse_URI, 'notspacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2')
 
     def test_parse_URI_parameter_polution(self):
-        self.assertRaises(Exception, parse_URI, 'zcash:t1NdvKvSnnBoJ7D9nfJSX5kK7GEGNs1bY4S?amount=0.0003&label=test&amount=30.0')
-
+        self.assertRaises(Exception, parse_URI, 'spacecoin:RWewyQfJ9kHqhqYhXZQE6SwFLDVskWWuU2?amount=0.0003&label=test&amount=30.0')

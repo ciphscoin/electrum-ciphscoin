@@ -36,12 +36,12 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         else:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electrum-zcash.desktop']),
-        (os.path.join(usr_share, icons_dirname), ['icons/electrum-spacecoin.png'])
+        (os.path.join(usr_share, 'applications/'), ['electrum-spacecoin.desktop']),
+        (os.path.join(usr_share, icons_dirname), ['icons/electrum-zcash.png'])
     ]
 
 setup(
-    name="Electrum-Zcash",
+    name="Electrum-Spacecoin",
     version=version.ELECTRUM_VERSION,
     install_requires=requirements,
     extras_require={
