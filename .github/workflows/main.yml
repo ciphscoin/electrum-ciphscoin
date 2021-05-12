@@ -1,4 +1,4 @@
-name: Spacecoin Electrum CI
+name: Ciphscoin Electrum CI
 
 on: [push, pull_request]
 
@@ -41,23 +41,23 @@ jobs:
       - name: Build (Linux/Appimage)
         run: |
           cd contrib/deterministic-build
-          git clone https://github.com/SpaceWorksCo/electrum-locale
+          git clone https://github.com/ciphscoin/electrum-locale
           cd ../..
           sudo docker build --no-cache \
-                      -t electrum-spacecoin-appimage-builder-img contrib/build-linux/appimage
+                      -t electrum-ciphscoin-appimage-builder-img contrib/build-linux/appimage
           sudo docker run \
-                          --name electrum-spacecoin-appimage-builder-cont \
-                          -v $PWD:/opt/electrum-spacecoin \
+                          --name electrum-ciphscoin-appimage-builder-cont \
+                          -v $PWD:/opt/electrum-ciphscoin \
                           --rm \
-                          --workdir /opt/electrum-spacecoin/contrib/build-linux/appimage \
-                          electrum-spacecoin-appimage-builder-img \
+                          --workdir /opt/electrum-ciphscoin/contrib/build-linux/appimage \
+                          electrum-ciphscoin-appimage-builder-img \
                           ./build.sh
-          tar -czvf electrum-spacecoin-appimage.tar.gz dist/*.AppImage
+          tar -czvf electrum-ciphscoin-appimage.tar.gz dist/*.AppImage
       - name: Upload electrum.Appiamge as artifact
         uses: actions/upload-artifact@v1
         with:
-          name: electrum-spacecoin-linux-${{ github.sha }}.AppImage.tar.gz
-          path: ./electrum-spacecoin-appimage.tar.gz
+          name: electrum-ciphscoin-linux-${{ github.sha }}.AppImage.tar.gz
+          path: ./electrum-ciphscoin-appimage.tar.gz
 
   #linux-test:
     #name: Linux Tests
@@ -110,12 +110,12 @@ jobs:
         run: |
           contrib/build-osx/before_install-osx.sh
           contrib/build-osx/build-gha.sh
-          tar -czvf electrum-spacecoin-macos.dmg.tar.gz contrib/build-osx/dist/*.dmg
+          tar -czvf electrum-ciphscoin-macos.dmg.tar.gz contrib/build-osx/dist/*.dmg
       - name: Upload electrum.dmg as artifact
         uses: actions/upload-artifact@v1
         with:
-          name: electrum-spacecoin-macos-${{ github.sha }}.dmg.tar.gz
-          path: ./electrum-spacecoin-macos.dmg.tar.gz
+          name: electrum-ciphscoin-macos-${{ github.sha }}.dmg.tar.gz
+          path: ./electrum-ciphscoin-macos.dmg.tar.gz
 
       #- name: Run Tests (MacOS)
         #run: |
@@ -155,7 +155,7 @@ jobs:
           cd contrib/build-wine
           sudo ./build.sh ${GITHUB_REF#refs/heads/} ${{ github.repository }}
           cd ../..
-          zip electrum-spacecoin-installer contrib/build-wine/dist/*.exe
+          zip electrum-ciphscoin-installer contrib/build-wine/dist/*.exe
       - name: Build (Wine) [on pr]
         if:  github.event_name == 'pull_request'
         run: |
@@ -165,12 +165,12 @@ jobs:
           cd contrib/build-wine
           sudo ./build.sh ${{ github.base_ref }}  ${{ github.repository }}
           cd ../..
-          zip electrum-spacecoin-installer contrib/build-wine/dist/*.exe
+          zip electrum-ciphscoin-installer contrib/build-wine/dist/*.exe
       - name: Upload electrum-setup.exe as artifact
         uses: actions/upload-artifact@v1
         with:
-          name: electrum-spacecoin-win-${{ github.sha }}.zip
-          path: ./electrum-spacecoin-installer.zip
+          name: electrum-ciphscoin-win-${{ github.sha }}.zip
+          path: ./electrum-ciphscoin-installer.zip
 
   #win-test:
     #name: Windows Tests

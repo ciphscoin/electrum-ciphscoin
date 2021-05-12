@@ -452,8 +452,8 @@ class DeviceMgr(ThreadJob, PrintError):
         # The user input has wrong PIN or passphrase, or cancelled input,
         # or it is not pairable
         raise DeviceUnpairableError(
-            _('Electrum-Spacecoin cannot pair with your {}.\n\n'
-              'Before you request Spacecoin coins to be sent to addresses in this '
+            _('Electrum-Ciphscoin cannot pair with your {}.\n\n'
+              'Before you request Ciphscoin coins to be sent to addresses in this '
               'wallet, ensure you can pair with your device, or that you have '
               'its seed (and passphrase, if any).  Otherwise all coins you '
               'receive will be unspendable.').format(plugin.device))

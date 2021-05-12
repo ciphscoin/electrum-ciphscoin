@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = Electrum-Spacecoin
+title = Electrum-Ciphscoin
 
 # (str) Package name
-package.name = Electrum-Spacecoin
+package.name = Electrum-Ciphscoin
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = cash.z.electrum

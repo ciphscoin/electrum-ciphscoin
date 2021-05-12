@@ -12,7 +12,7 @@ Builder.load_string('''
 
 <PasswordDialog@Popup>
     id: popup
-    title: 'Electrum-Spacecoin'
+    title: 'Electrum-Ciphscoin'
     message: ''
     BoxLayout:
         size_hint: 1, 1
@@ -82,7 +82,7 @@ class PasswordDialog(Factory.Popup):
         self.is_change = is_change
         self.pw = None
         self.new_password = None
-        self.title = 'Electrum-Spacecoin' + ('  -  ' + self.wallet.basename() if self.wallet else '')
+        self.title = 'Electrum-Ciphscoin' + ('  -  ' + self.wallet.basename() if self.wallet else '')
 
     def check_password(self, password):
         if self.is_change > 1:

@@ -132,7 +132,7 @@ class ElectrumWindow(App):
         self.send_screen.set_URI(uri)
 
     def on_new_intent(self, intent):
-        if intent.getScheme() != 'spacecoin':
+        if intent.getScheme() != 'ciphscoin':
             return
         uri = intent.getDataString()
         self.set_URI(uri)
@@ -154,7 +154,7 @@ class ElectrumWindow(App):
         self._trigger_update_history()
 
     def _get_bu(self):
-        return self.electrum_config.get('base_unit', 'SPACE')
+        return self.electrum_config.get('base_unit', 'CIPHS')
 
     def _set_bu(self, value):
         assert value in base_units.keys()
@@ -244,7 +244,7 @@ class ElectrumWindow(App):
 
         App.__init__(self)#, **kwargs)
 
-        title = _('Electrum-Spacecoin App')
+        title = _('Electrum-Ciphscoin App')
         self.electrum_config = config = kwargs.get('config', None)
         self.language = config.get('language', 'en')
         self.network = network = kwargs.get('network', None)
@@ -303,7 +303,7 @@ class ElectrumWindow(App):
         if is_address(data):
             self.set_URI(data)
             return
-        if data.startswith('spacecoin:'):
+        if data.startswith('ciphscoin:'):
             self.set_URI(data)
             return
         # try to decode transaction
@@ -450,7 +450,7 @@ class ElectrumWindow(App):
         self.fiat_unit = self.fx.ccy if self.fx.is_enabled() else ''
         # default tab
         self.switch_to('history')
-        # bind intent for spacecoin: URI scheme
+        # bind intent for ciphscoin: URI scheme
         if platform == 'android':
             from android import activity
             from jnius import autoclass
@@ -497,7 +497,7 @@ class ElectrumWindow(App):
             else:
                 self.load_wallet(wallet)
         else:
-            Logger.debug('Electrum-Spacecoin: Wallet not found. Launching install wizard')
+            Logger.debug('Electrum-Ciphscoin: Wallet not found. Launching install wizard')
             storage = WalletStorage(path)
             wizard = Factory.InstallWizard(self.electrum_config, storage)
             wizard.bind(on_wizard_complete=self.on_wizard_complete)
@@ -591,7 +591,7 @@ class ElectrumWindow(App):
         self.receive_screen = None
         self.requests_screen = None
         self.address_screen = None
-        self.icon = "icons/electrum-spacecoin.png"
+        self.icon = "icons/electrum-ciphscoin.png"
         self.tabs = self.root.ids['tabs']
 
     def update_interfaces(self, dt):
@@ -684,7 +684,7 @@ class ElectrumWindow(App):
                 from plyer import notification
             icon = (os.path.dirname(os.path.realpath(__file__))
                     + '/../../' + self.icon)
-            notification.notify('Electrum-Spacecoin', message,
+            notification.notify('Electrum-Ciphscoin', message,
                             app_icon=icon, app_name='Electrum')
         except ImportError:
             Logger.Error('Notification: needs plyer; `sudo pip install plyer`')

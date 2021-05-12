@@ -22,11 +22,11 @@ if [ ! -z "$2" ]
     then
         URL=https://github.com/$2.git
     else
-        URL=https://github.com/spaceworksco/electrum-spacecoin.git
+        URL=https://github.com/ciphscoin/electrum-ciphscoin.git
     fi
 
-if [ -d electrum-spacecoin ]; then
-    cd electrum-spacecoin
+if [ -d electrum-ciphscoin ]; then
+    cd electrum-ciphscoin
     git pull
     if [ ! -z "$1" ]
         then
@@ -39,13 +39,13 @@ if [ -d electrum-spacecoin ]; then
     echo $URL
     if [ $1 ]
         then
-            git clone $URL electrum-spacecoin
-	    cd electrum-spacecoin
+            git clone $URL electrum-ciphscoin
+	    cd electrum-ciphscoin
 	    git checkout --force $1
 	    cd ..
         else
-            git clone $URL electrum-spacecoin
-	    cd electrum-spacecoin
+            git clone $URL electrum-ciphscoin
+	    cd electrum-ciphscoin
 	    git checkout master
 	    cd ..
         fi
@@ -58,7 +58,7 @@ for repo in electrum-locale electrum-icons; do
 	git checkout master
 	cd ..
     else
-	URL=https://github.com/spaceworksco/$repo.git
+	URL=https://github.com/ciphscoin/$repo.git
 	git clone -b master $URL $repo
     fi
 done
@@ -71,7 +71,7 @@ for i in ./locale/*; do
 done
 popd
 
-pushd electrum-spacecoin
+pushd electrum-ciphscoin
 if [ ! -z "$1" ]; then
     git checkout $1
 fi
@@ -82,9 +82,9 @@ find -exec touch -d '2000-11-11T11:11:11+00:00' {} +
 popd
 
 rm -rf $WINEPREFIX/drive_c/electrum
-cp -r electrum-spacecoin $WINEPREFIX/drive_c/electrum
-cp -r electrum-spacecoin/icons $WINEPREFIX/drive_c/electrum/icons
-cp electrum-spacecoin/LICENCE .
+cp -r electrum-ciphscoin $WINEPREFIX/drive_c/electrum
+cp -r electrum-ciphscoin/icons $WINEPREFIX/drive_c/electrum/icons
+cp electrum-ciphscoin/LICENCE .
 cp -r electrum-locale/locale $WINEPREFIX/drive_c/electrum/lib/
 cp electrum-icons/icons_rc.py $WINEPREFIX/drive_c/electrum/gui/qt/
 

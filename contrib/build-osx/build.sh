@@ -1,13 +1,13 @@
 #!/bin/bash
 set -ev
 
-BUILD_REPO_URL=https://github.com/spaceworksco/electrum-spacecoin
+BUILD_REPO_URL=https://github.com/ciphscoin/electrum-siphscoin
 
-#git clone --branch dev $BUILD_REPO_URL electrum-spacecoin
+#git clone --branch dev $BUILD_REPO_URL electrum-ciphscoin
 
-cp libusb-1.0.dylib electrum-spacecoin/contrib
+cp libusb-1.0.dylib electrum-ciphscoin/contrib
 
-cd electrum-spacecoin
+cd electrum-ciphscoin
 
 export PY36BINDIR=/Library/Frameworks/Python.framework/Versions/3.6/bin/
 export PATH=$PATH:$PY36BINDIR
@@ -30,6 +30,6 @@ pyinstaller \
     --name electrum-zcash-$ELECTRUM_ZCASH_VERSION.bin \
     contrib/build-osx/osx.spec
 
-sudo hdiutil create -fs HFS+ -volname "Electrum-Spacecoin" \
-    -srcfolder dist/Electrum-Spacecoin.app \
-    dist/electrum-spacecoin-$ELECTRUM_ZCASH_VERSION-macosx.dmg
+sudo hdiutil create -fs HFS+ -volname "Electrum-Ciphscoin" \
+    -srcfolder dist/Electrum-Ciphscoin.app \
+    dist/electrum-ciphscoin-$ELECTRUM_ZCASH_VERSION-macosx.dmg

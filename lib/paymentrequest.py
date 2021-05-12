@@ -47,8 +47,8 @@ from . import rsakey
 
 from .bitcoin import TYPE_ADDRESS
 
-REQUEST_HEADERS = {'Accept': 'application/spacecoin-paymentrequest', 'User-Agent': 'Electrum-Spacecoin'}
-ACK_HEADERS = {'Content-Type':'application/spacecoin-payment','Accept':'application/spacecoin-paymentack','User-Agent':'Electrum-Spacecoin'}
+REQUEST_HEADERS = {'Accept': 'application/ciphscoin-paymentrequest', 'User-Agent': 'Electrum-Ciphscoin'}
+ACK_HEADERS = {'Content-Type':'application/ciphscoin-payment','Accept':'application/ciphscoin-paymentack','User-Agent':'Electrum-Ciphscoin'}
 
 ca_path = requests.certs.where()
 ca_list = None
@@ -76,9 +76,9 @@ def get_payment_request(url):
         try:
             response = requests.request('GET', url, headers=REQUEST_HEADERS)
             response.raise_for_status()
-            # Guard against `spacecoin:`-URIs with invalid payment request URLs
+            # Guard against `ciphscoin:`-URIs with invalid payment request URLs
             if "Content-Type" not in response.headers \
-            or response.headers["Content-Type"] != "application/spacecoin-paymentrequest":
+            or response.headers["Content-Type"] != "application/ciphscoin-paymentrequest":
                 data = None
                 error = "payment URL not pointing to a payment request handling server"
             else:
@@ -267,7 +267,7 @@ class PaymentRequest:
         paymnt.transactions.append(bfh(raw_tx))
         ref_out = paymnt.refund_to.add()
         ref_out.script = util.bfh(transaction.Transaction.pay_script(TYPE_ADDRESS, refund_addr))
-        paymnt.memo = "Paid using Electrum-Spacecoin"
+        paymnt.memo = "Paid using Electrum-Ciphscoin"
         pm = paymnt.SerializeToString()
         payurl = urllib.parse.urlparse(pay_det.payment_url)
         try:

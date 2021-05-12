@@ -17,16 +17,16 @@ PASSPHRASE_HELP_SHORT =_(
     "Passphrases allow you to access new wallets, each "
     "hidden behind a particular case-sensitive passphrase.")
 PASSPHRASE_HELP = PASSPHRASE_HELP_SHORT + "  " + _(
-    "You need to create a separate Electrum-Spacecoin wallet for each passphrase "
+    "You need to create a separate Electrum-Ciphscoin wallet for each passphrase "
     "you use as they each generate different addresses.  Changing "
     "your passphrase does not lose other wallets, each is still "
     "accessible behind its own passphrase.")
 RECOMMEND_PIN = _(
     "You should enable PIN protection.  Your PIN is the only protection "
-    "for your Spacecoin coins if your device is lost or stolen.")
+    "for your Ciphscoin coins if your device is lost or stolen.")
 PASSPHRASE_NOT_PIN = _(
     "If you forget a passphrase you will be unable to access any "
-    "Spacecoin coins in the wallet behind it.  A passphrase is not a PIN. "
+    "Ciphscoin coins in the wallet behind it.  A passphrase is not a PIN. "
     "Only change this if you are sure you understand it.")
 CHARACTER_RECOVERY = (
     "Use the recovery cipher shown on your device to input your seed words.  "

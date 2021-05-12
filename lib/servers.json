@@ -1,12 +1,12 @@
 {
-    "electrum1.spaceworks.co":
+    "electrum1.152.89.247.97":
     {
-        "t":"50001",
+        "t":"50600",
         "version": "1.4"
     },
-    "electrum2.spaceworks.co": 
+    "electrum2.152.89.247.97": 
     {
-        "t":"50001",
+        "t":"50600",
         "version": "1.4"
     }
 }

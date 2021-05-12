@@ -1,7 +1,7 @@
 <RCC>
   <qresource prefix="/" >
-    <file>icons/electrum-spacecoin.png</file>
-    <file>icons/electrum-spacecoin.ico</file>
+    <file>icons/electrum-ciphscoin.png</file>
+    <file>icons/electrum-ciphscoin.ico</file>
     <file>icons/clock1.png</file>
     <file>icons/clock2.png</file>
     <file>icons/clock3.png</file>
