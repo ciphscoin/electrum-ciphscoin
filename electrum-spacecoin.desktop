@@ -1,14 +1,14 @@
-# If you want Electrum-Spacecoin to appear in a Linux app launcher ("start menu"), install this by doing:
-# sudo desktop-file-install electrum-spacecoin.desktop
+# If you want Electrum-Ciphscoin to appear in a Linux app launcher ("start menu"), install this by doing:
+# sudo desktop-file-install electrum-ciphscoin.desktop
 
 [Desktop Entry]
-Comment=Lightweight Spacecoin Client
+Comment=Lightweight Ciphscoin Client
 Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\" electrum-zcash %u"
-GenericName[en_US]=Spacecoin Wallet
-GenericName=Spacecoin Wallet
-Icon=electrum-spacecoin
-Name[en_US]=Electrum Spacecoin Wallet
-Name=Electrum Spacecoin Wallet
+GenericName[en_US]=Ciphscoin Wallet
+GenericName=Ciphscoin Wallet
+Icon=electrum-ciphscoin
+Name[en_US]=Electrum Ciphscoin Wallet
+Name=Electrum Ciphscoin Wallet
 Categories=Finance;Network;
 StartupNotify=false
 Terminal=false

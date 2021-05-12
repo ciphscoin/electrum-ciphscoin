@@ -123,7 +123,7 @@ exe = EXE(pyz,
           strip=False,
           upx=False,
           console=False,
-          icon='../../icons/electrum-spacecoin.ico',
+          icon='../../icons/electrum-ciphscoin.ico',
           name=os.path.join('build/electrum-zcash/electrum-zcash', cmdline_name))
 
 # trezorctl separate bin
@@ -151,7 +151,7 @@ coll = COLLECT(exe, tctl_exe,
                name=os.path.join('dist', 'electrum-zcash'))
 
 app = BUNDLE(coll,
-             name=os.path.join('dist', 'Electrum-Spacecoin.app'),
-             appname="Electrum-Spacecoin",
-	         icon='electrum-spacecoin.icns',
+             name=os.path.join('dist', 'Electrum-Ciphscoin.app'),
+             appname="Electrum-Ciphscoin",
+	         icon='electrum-ciphscoin.icns',
              version = 'ELECTRUM_VERSION')

@@ -7,7 +7,7 @@ CONTRIB="$PROJECT_ROOT/contrib"
 CONTRIB_APPIMAGE="$CONTRIB/build-linux/appimage"
 DISTDIR="$PROJECT_ROOT/dist"
 BUILDDIR="$CONTRIB_APPIMAGE/build/appimage"
-APPDIR="$BUILDDIR/electrum-spacecoin.AppDir"
+APPDIR="$BUILDDIR/electrum-ciphscoin.AppDir"
 CACHEDIR="$CONTRIB_APPIMAGE/.cache/appimage"
 
 # pinned versions
@@ -18,7 +18,7 @@ SQUASHFSKIT_COMMIT="ae0d656efa2d0df2fcac795b6823b44462f19386"
 
 
 VERSION=`git describe --tags --dirty --always`
-APPIMAGE="$DISTDIR/electrum-spacecoin-$VERSION-x86_64.AppImage"
+APPIMAGE="$DISTDIR/electrum-ciphscoin-$VERSION-x86_64.AppImage"
 
 rm -rf "$BUILDDIR"
 mkdir -p "$APPDIR" "$CACHEDIR" "$DISTDIR"
@@ -143,8 +143,8 @@ cp "/usr/lib/libzbar.so.0" "$APPDIR/usr/lib/libzbar.so.0"
 
 
 info "desktop integration."
-cp "$PROJECT_ROOT/electrum-spacecoin.desktop" "$APPDIR/electrum-spacecoin.desktop"
-cp "$PROJECT_ROOT/icons/electrum-spacecoin.png" "$APPDIR/electrum-spacecoin.png"
+cp "$PROJECT_ROOT/electrum-ciphscoin.desktop" "$APPDIR/electrum-ciphscoin.desktop"
+cp "$PROJECT_ROOT/icons/electrum-ciphscoin.png" "$APPDIR/electrum-ciphscoin.png"
 
 
 # add launcher
